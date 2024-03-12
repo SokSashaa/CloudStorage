@@ -1,28 +1,28 @@
-import {IsEmail, IsString, IsStrongPassword} from "class-validator";
-import {ApiProperty} from "@nestjs/swagger";
+import { IsEmail, IsString } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateUserDto {
-    @ApiProperty({
-        default:'test@mail.ru'
-    })
-    @IsEmail()
-    email:string
+  @ApiProperty({
+    default: 'test@mail.ru',
+  })
+  @IsEmail()
+  email: string;
 
-    @ApiProperty({
-        default:'G123dfew!e'
-    })
-    @IsString()
-    password:string
+  @ApiProperty({
+    default: 'G123dfew!e',
+  })
+  @IsString()
+  password: string;
 
-    @ApiProperty({
-        default:'Ivan'
-    })
-    @IsString()
-    firstName:string
+  @ApiProperty({
+    default: 'Ivan',
+  })
+  @IsString()
+  firstName: string;
 
-    @ApiProperty({
-        default:'Ivanov'
-    })
-    @IsString()
-    lastName:string
+  @ApiProperty({
+    default: 'Ivanov',
+  })
+  @IsString()
+  lastName: string;
 }
