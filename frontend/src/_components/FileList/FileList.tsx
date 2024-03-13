@@ -23,7 +23,7 @@ export const FileList: FC = () => {
         <div className={styles.root}>
             {files.map((item) => (
                 <div data-id={item.id} key={item.id} className="file" >
-                    {/*<FileCard filename={item.filename} originalName={item.originalName} />*/}
+                    <FileCard originalName={item.originalName} />
                 </div>
             ))}
 

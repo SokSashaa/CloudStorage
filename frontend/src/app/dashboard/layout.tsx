@@ -1,6 +1,7 @@
+'use client'
 import {FC, PropsWithChildren, ReactNode} from "react";
 import styles from "@/_styles/Home.module.scss";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import UploadButton from "@/_components/UploadButton/UploadButton";
 import { Menu } from "antd";
 import {
@@ -10,8 +11,8 @@ import {
 } from "@ant-design/icons";
 
 export default function DashboardLayout ({children}:Readonly<{children:ReactNode}>) {
-   // const router = useRouter();
-    //const selectedMenu = router.pathname;
+    const router = useRouter();
+
 
     return (
         <main className={styles.dashboardContainer}>
@@ -20,25 +21,12 @@ export default function DashboardLayout ({children}:Readonly<{children:ReactNode
                 <Menu
                     className={styles.menu}
                     mode="inline"
-                   // selectedKeys={[selectedMenu]}
                     items={[
                         {
                             key: `/dashboard`,
-                             icon: <FileOutlined />,
+                            icon: <FileOutlined />,
                             label: `Файлы`,
-                            //onClick: () => router.push("/dashboard"),
-                        },
-                        {
-                            key: `/dashboard/photos`,
-                            icon: <FileImageOutlined />,
-                            label: `Фото`,
-                            //onClick: () => router.push("/dashboard/photos"),
-                        },
-                        {
-                            key: `/dashboard/trash`,
-                            icon: <DeleteOutlined />,
-                            label: `Корзина`,
-                            //onClick: () => router.push("/dashboard/trash"),
+                            onClick: () => router.push("/dashboard"),
                         },
                     ]}
                 />
